@@ -10,7 +10,6 @@ class MysqlMetadataAdaptor(object):
 
     def retrieve_metadata_mysql(self):
         cur = self._db_session.cursor()
-
         cur.execute('select * from instagram')
         for row in cur.fetchall():
             print(row)
