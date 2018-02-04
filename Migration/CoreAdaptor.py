@@ -8,12 +8,23 @@ class MysqlCoreAdaptor:
         self.field_info = field_info
 
     def output_data(self):
-        cur = self._db_session.cursor()
-        fields = ','.join(str(s) for s in self.field_info)
-        cur.execute('select ' + fields + ' from ' + self.table_name)
-        for row in cur.fetchall():
-            print(row)
-        cur.close()
+        try:
+            cur = self._db_session.cursor()
+            fields = ','.join(str(s) for s in self.field_info)
+            choose = input("Enter yes if you want to chose the fields / no if you want to select all columns from table")
+            if choose == 'yes':
+                field_name = input("Please choose fields with comma separation from the above list")
+                cur.execute('select ' + field_name + ' from ' + self.table_name)
+            else:
+                cur.execute('select ' + fields + ' from ' + self.table_name)
+
+            for row in cur.fetchall():
+                print(row)
+            cur.close()
+
+        except:
+            print("Enter valid table_name")
+            self.output_data()
 
 
 
