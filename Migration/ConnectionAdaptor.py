@@ -25,7 +25,7 @@ class MysqlConnectionAdaptor(object):
         except:
             print("Failed!!please enter valid credentials")
             self.init_connection_to_mysql()
-            print("connection to database is sucessfull")
+        print("connection to database is sucessfull")
 
     @property
     def get_mysql_db_session(self):
