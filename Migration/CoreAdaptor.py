@@ -10,9 +10,7 @@ class MysqlCoreAdaptor:
     def output_data(self):
         cur = self._db_session.cursor()
         fields = ','.join(str(s) for s in self.field_info)
-
         cur.execute('select ' + fields + ' from ' + self.table_name)
-
         for row in cur.fetchall():
             print(row)
         cur.close()
