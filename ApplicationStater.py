@@ -7,6 +7,7 @@ from Migration.CoreAdaptor import MysqlCoreAdaptor
 
 
 def main(argv):
+
     # connectionAdaptor object
     connection_obj = MysqlConnectionAdaptor()
     connection_obj.init_connection_to_mysql()
@@ -20,6 +21,8 @@ def main(argv):
     # core adaptor object
     core_obj = MysqlCoreAdaptor(session, table_name, field_info)
     core_obj.output_data()
+
+
 
 
 if __name__ == '__main__':
