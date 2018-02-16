@@ -5,7 +5,8 @@ from Migration.ConnectionAdaptor import MysqlConnectionAdaptor
 from Migration.MetadataAdaptor import MysqlMetadataAdaptor
 from Migration.CoreAdaptor import MysqlCoreAdaptor
 from Migration.NosqlConnectionAdaptor import ConnectionMongodb
-from Migration.NosqlMetadaAdaptoe import MetaMongodb
+from Migration.NosqlMetadaAdaptor import MetaMongodb
+from Migration.NosqlCoreAdaptor import CoreMongodb
 
 def main(argv):
 
@@ -29,6 +30,10 @@ def main(argv):
 
     meta_obj = MetaMongodb(mongo_ses, session,table_name, field_info)
     meta_obj.retrieve_metadata_mongodb()
+    coll_name =meta_obj.get_collection_name
+
+    core_obj = CoreMongodb(mongo_ses, session,coll_name)
+    core_obj.Put_data()
 
 
 if __name__ == '__main__':
