@@ -1,7 +1,7 @@
 import sys
 
 from Migration.NosqlConnectionAdaptor import ConnectionMongodb
-from Migration.NosqlMetadaAdaptoe import MetaMongodb
+from Migration.NosqlMetadaAdaptor import MetaMongodb
 
 
 def mainMangodb(argv):
